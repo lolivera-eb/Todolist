@@ -1,0 +1,39 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+        <title> Todo List</title>
+</head>
+
+<body>
+    <h2>Todo List</h2>
+    <ul>
+        {% if not obj %}
+            <li>not todo</li>
+        {% else %}
+                {% for item in obj %}
+                    {% if item.done == True %}
+                    <h3><strike>{{ item.id }} - {{ item.descripcion }} ({{ item.user}}) </strike>
+                    <a href="{% url 'todolist_app:todo_delete' item.id %}">delete</a>
+                    <a href="{% url 'todolist_app:todo_update' item.id %}">update</a>
+                    <a href="{% url 'todolist_app:user_update' item.id %}">update User</a>
+                    {% else %}
+                    <h3>descripcion : {{ item.descripcion }} - id: {{ item.id }} - done : {{ item.done }} - {{ item.user }}</h3>
+                    <a href="{% url 'todolist_app:todo_delete' item.id %}">delete</a>
+                    <a href="{% url 'todolist_app:todo_update' item.id %}">update</a>
+                    <a href="{% url 'todolist_app:user_update' item.id %}">update User</a>
+                    {% endif %}
+                {% endfor %}
+        {% endif %}
+        <li></li>
+            <a href="{% url 'todolist_app:todo_form' %}">New todo</a>
+            <a href="{% url 'logout'%}">Logout</a>
+        </ul>
+
+
+</body>
+</html>
+
+
+
