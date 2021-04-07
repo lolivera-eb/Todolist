@@ -28,6 +28,8 @@
 
 <div>
   <input type="submit" value="login" />
+  <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+  <a href="{% url 'social:begin' 'github' %}">Login with Github</a>
   <input type="hidden" name="next" value="{{ next }}" />
 </div>
 </form>
