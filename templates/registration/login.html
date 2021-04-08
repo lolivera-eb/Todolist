@@ -1,4 +1,6 @@
-
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
 {% block content %}
 
 {% if form.errors %}
@@ -27,10 +29,10 @@
 </div>
 
 <div>
-  <input type="submit" value="login" />
+  {% buttons submit='login' reset="Cancel" %}{% endbuttons %}
   <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
   <a href="{% url 'social:begin' 'github' %}">Login with Github</a>
   <input type="hidden" name="next" value="{{ next }}" />
 </div>
 </form>
-{% endblock %}
+{% endblock %} 

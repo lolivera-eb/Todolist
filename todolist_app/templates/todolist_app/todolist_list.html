@@ -1,5 +1,5 @@
 {% load bootstrap4 %}
-
+{% bootstrap_css %}
 {# Display a form #}
 <!doctype html>
 
@@ -15,6 +15,7 @@
     <h2>My Social Login Homepage</h2>
     <p>Hi {{ user.username }}!</p>
     {% endblock %}
+    <form method="GET">
     <ul>
         {% if not obj %}
             <li>not todo</li>
@@ -25,8 +26,7 @@
                     <a href="{% url 'todolist_app:todo_delete' item.id %}">delete</a>
                     <a href="{% url 'todolist_app:todo_update' item.id %}">update</a>
                     <a href="{% url 'todolist_app:user_update' item.id %}">update User</a>
-                    <form action="/url/to/submit/" method="post" class="form">
-</form>
+                    <form action="/url/to/submit/" method="post" class="form"></form>
                     {% else %}
                     <h3>descripcion : {{ item.descripcion }} - id: {{ item.id }} - done : {{ item.done }} - {{ item.user }}</h3>
                     <a href="{% url 'todolist_app:todo_delete' item.id %}">delete</a>
@@ -39,7 +39,7 @@
             <a href="{% url 'todolist_app:todo_form' %}">New todo</a>
             <a href="{% url 'logout'%}">Logout</a>
         </ul>
-
+    </form>
 
 </body>
 </html>

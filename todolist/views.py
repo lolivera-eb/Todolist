@@ -4,3 +4,4 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class HomeView(LoginRequiredMixin, TemplateView):
     template_name = "todolist_list.html" 
+

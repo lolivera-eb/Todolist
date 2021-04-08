@@ -21,4 +21,5 @@ urlpatterns = [
     path('', include(('todolist_app.urls', 'todolist'), namespace='todolist_app')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('oauth/', include('social_django.urls', namespace='social')),
+    path('allauth/', include('allauth.urls')),
 ]
